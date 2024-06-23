@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form action="/joinProc" method="post">
+    <input id="name" type="text" name="name" placeholder="이름"/>
+    <input id="username" type="text" name="username" placeholder="id"/>
+    <input id="password" type="password" name="password" placeholder="password"/>
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+    <input type="submit" value="회원가입"/>
+</form>
+</body>
+</html>
