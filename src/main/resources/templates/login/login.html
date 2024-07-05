@@ -1,15 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
 <body>
-<form action="/loginProc" method="post">
-    <input id="username" type="text" name="username" placeholder="id"/>
-    <input id="password" type="password" name="password" placeholder="password"/>
-    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-    <input type="submit" value="Login"/>
-</form>
+<div class="login_box">
+    <form action="/loginValid" method="post" th:object="${loginDTO}">
+        <h1>Hello</h1>
+        <div class="username_wrap">
+            <input type="text" th:field="*{username}" placeholder="ID">
+        </div>
+        <div class="error" th:errors="*{username}"></div>
+        <div class="password_wrap">
+            <input type="password" th:field="*{password}" placeholder="Password">
+        </div>
+        <div class="error" th:errors="*{password}"></div>
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+        <div class="login_btn">
+            <input type="submit" value="Login" placeholder="Login">
+        </div>
+        <div class="guide">
+            <p><a href="#">로그인 정보를 잊으셨나요?</a></p>
+            <p><a th:href="@{/join}">회원가입</a></p>
+        </div>
+    </form>
+</div>
 </body>
 </html>

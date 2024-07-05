@@ -1,0 +1,110 @@
+.join_box {
+    background: skyblue;
+    width: 600px;
+    border-radius: 12px;
+    padding: 35px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .3);
+}
+
+.join_box h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.join_box .username_wrap,
+.join_box .password_wrap,
+.join_box .join_btn {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.username_wrap input {
+    width: 80%;
+    height: 100%;
+    font-size: 16px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
+}
+
+.password_wrap input {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 20px;
+    outline: none;
+}
+
+.username_wrap .overlap_btn {
+    width: 18%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 20px;
+}
+
+.join_btn input {
+    width: 90%;
+    height: 100%;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.username_wrap input:focus,
+.password_wrap input:focus {
+    border: 2px solid skyblue;
+}
+
+.join_btn input:hover {
+    background: skyblue;
+    border: none;
+}
+
+.join_box .guide {
+    text-align: center;
+}
+
+.join_box .guide p {
+    margin: 5px 0;
+}
+
+.join_box .guide a {
+    color: #130d0d;
+    text-decoration: none;
+}
+
+.join_box .guide a:hover {
+    text-decoration: underline;
+}
+
+.overlap_btn:hover {
+    border: 2px solid skyblue;
+    cursor: pointer;
+}
+
+.age_wrap,
+.gender_wrap,
+.tel_wrap {
+    font-size: 20px;
+}
+
+.age_wrap input,
+.tel_wrap input {
+    width: 10%;
+}
+
+.cancel {
+    text-align: center;
+}

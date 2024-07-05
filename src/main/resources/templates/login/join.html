@@ -1,16 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/join.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 <body>
-<form action="/joinProc" method="post">
-    <input id="name" type="text" name="name" placeholder="이름"/>
-    <input id="username" type="text" name="username" placeholder="id"/>
-    <input id="password" type="password" name="password" placeholder="password"/>
-    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-    <input type="submit" value="회원가입"/>
-</form>
+<div class="join_box">
+    <form action="/joinProc" method="post" th:object="${joinDTO}">
+        <h1>회원가입</h1>
+        <div class="username_wrap">
+            <input type="text" th:field="*{username}" placeholder="ID">
+            <button class="overlap_btn" onclick="check();return false;">중복확인</button>
+        </div>
+        <div class="error" th:errors="*{username}"></div>
+        <div class="password_wrap">
+            <input type="password" th:field="*{password}" placeholder="Password">
+        </div>
+        <div class="error" th:errors="*{password}"></div>
+        <br>
+        <div class="age_wrap">
+            생년월일
+            <input class="year" type="text" th:field="*{b_year}" pattern="[0-9]{4}">년
+            <input class="month" type="text" th:field="*{b_month}" pattern="[0-9]{2}">월
+            <input class="day" type="text" th:field="*{b_day}" pattern="[0-9]{2}">일
+        </div>
+        <div class="error" th:errors="*{birthDay}"></div>
+        <br>
+        <div class="gender_wrap">
+            <input id="man" type="radio" name="gender" value="M" checked>
+            <label for="man">남자</label>
+            <input id="woman" type="radio" value="W" name="gender">
+            <label for="woman">여자</label>
+        </div>
+        <br>
+        <div class="tel_wrap">
+            연락처
+            <input type="text" th:field="*{p_1}" pattern="[0-9]{2,3}"> -
+            <input type="text" th:field="*{p_2}" pattern="[0-9]{3,4}"> -
+            <input type="text" th:field="*{p_3}" pattern="[0-9]{3,4}">
+        </div>
+        <div class="error" th:errors="*{phone}"></div>
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+        <div class="join_btn">
+            <input type="submit" value="가입하기">
+        </div>
+        <div class="cancel">
+            <p><a href="/login">취소</a></p>
+        </div>
+    </form>
+</div>
+
+<script>
+    function check() {
+        var username = $('#username').val();
+
+        $.ajax({
+           type: 'get',
+           url: '/usernameOverlapCheck',
+            dataType: 'text',
+            data: { username: username },
+            success: function (result) {
+               alert(result);
+            }
+        });
+    }
+</script>
 </body>
 </html>
