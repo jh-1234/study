@@ -1,6 +1,6 @@
 package com.example.study.service;
 
-import com.example.study.dto.CustomUserDetails;
+import com.example.study.security.CustomUserDetails;
 import com.example.study.entity.User;
 import com.example.study.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +21,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUsername(username);
 
-        return user.map(CustomUserDetails::new).orElseThrow(NullPointerException::new);
+        return user.map(CustomUserDetails::new).orElseThrow(() ->  new UsernameNotFoundException(username + " is not found"));
     }
 }

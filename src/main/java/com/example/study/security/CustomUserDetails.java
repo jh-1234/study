@@ -1,4 +1,4 @@
-package com.example.study.dto;
+package com.example.study.security;
 
 import com.example.study.entity.User;
 import org.springframework.security.core.GrantedAuthority;

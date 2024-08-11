@@ -28,9 +28,11 @@ public class JoinService {
         User user = new User();
         user.setUsername(joinDTO.getUsername());
         user.setPassword(bCryptPasswordEncoder.encode(joinDTO.getPassword()));
+        user.setEmail(joinDTO.getEmail());
         user.setGender(joinDTO.getGender());
-        user.setBirthDay(joinDTO.getBirthDay());
+        user.setBirthdate(joinDTO.getBirthdate());
         user.setPhone(joinDTO.getPhone());
+        user.setAddress(joinDTO.getAddress());
         user.setRole(UserRole.ROLE_USER);
 
         userRepository.save(user);

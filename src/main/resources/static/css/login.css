@@ -1,72 +1,63 @@
-.login_box {
-    background: skyblue;
-    width: 400px;
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.login-container {
+    background-color: #ffffff;
+    padding: 30px;
     border-radius: 12px;
-    padding: 35px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .3);
-}
-
-.login_box h1 {
-    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 360px;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
 }
-
-.login_box .username_wrap,
-.login_box .password_wrap,
-.login_box .login_btn {
-    width: 100%;
-    height: 40px;
-    text-align: center;
-    margin: 15px 0;
+.login-container:hover {
+    transform: scale(1.02);
 }
-
-.username_wrap input,
-.password_wrap input {
-    width: 90%;
-    height: 100%;
-    font-size: 16px;
-    background: transparent;
-    border: 2px solid #fff;
-    border-radius: 20px;
-    padding: 20px;
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+.login-container input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     outline: none;
+    transition: border-color 0.3s ease;
 }
-
-.login_btn input {
-    width: 90%;
-    height: 100%;
-    background: #fff;
-    border: 2px solid #fff;
-    border-radius: 20px;
-    font-size: 24px;
-    font-weight: 600;
-    cursor: pointer;
+.login-container input:focus {
+    border-color: #6e45e2;
 }
-
-.username_wrap input:focus,
-.password_wrap input:focus {
-    border: 2px solid skyblue;
-}
-
-.login_btn input:hover {
-    background: skyblue;
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6e45e2;
     border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-
-.login_box .guide {
-    text-align: center;
+.login-container button:hover {
+    background-color: #5b33b0;
 }
-
-.login_box .guide p {
-    margin: 5px 0;
+.login-container p {
+    margin-top: 20px;
+    color: #666;
 }
-
-.login_box .guide a {
-    color: #130d0d;
+.login-container a {
+    color: #6e45e2;
     text-decoration: none;
+    font-weight: bold;
 }
-
-.login_box .guide a:hover {
+.login-container a:hover {
     text-decoration: underline;
 }

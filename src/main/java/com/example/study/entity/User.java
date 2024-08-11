@@ -4,16 +4,13 @@ import com.example.study.constant.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
-public class User {
+public class User extends TimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,15 +23,21 @@ public class User {
     @NotBlank
     private String password;
 
+    private String email;
+
     @NotBlank
     @Column(length = 1)
     private String gender;
 
     @NotNull
-    private LocalDate birthDay;
+    private String birthdate;
 
     @NotBlank
     private String phone;
+
+    private String address;
+
+    private int passwordErrCnt;
 
     @NotNull
     @Enumerated(EnumType.STRING)
