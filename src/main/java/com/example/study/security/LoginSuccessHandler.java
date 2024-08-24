@@ -10,12 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;
 
 @Configuration
+@Transactional
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
     @Autowired
@@ -24,7 +26,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         String username = authentication.getName();
-        System.out.println(username);
 
         Optional<User> user = userRepository.findByUsername(username);
 
@@ -38,6 +39,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
                 response.sendRedirect("/login?errorCode=2");
             } else {
+                user.get().setPasswordErrCnt(0);
                 response.sendRedirect("/");
             }
         }
