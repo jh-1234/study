@@ -1,0 +1,365 @@
+.container {
+    margin-top: 80px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    max-width: 1200px;
+    width: calc(100% - 240px);
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
+    flex: 1;
+    position: relative;
+}
+
+.post-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.recommend-button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.recommend-button:hover {
+    background-color: #005bb5;
+}
+
+.attachment-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.attachment-container h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #0073e6;
+}
+
+.attachment-container a {
+    display: block;
+    padding: 5px;
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.attachment-container a:hover {
+    text-decoration: underline;
+}
+
+.post-content {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.btn-back:hover {
+    background-color: #005bb5;
+}
+
+.author-info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    border-top: 2px solid #0073e6;
+}
+
+.author-photo {
+    margin-right: 20px;
+}
+
+.author-photo img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.author-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 배치 */
+    grid-template-rows: repeat(2, auto); /* 2행 배치 */
+    grid-gap: 10px;
+    width: 100%;
+}
+
+.author-details .item {
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.author-details .item {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.author-info .item .label {
+    font-weight: bold;
+    color: #0073e6;
+}
+
+.author-info .item .value {
+    color: #555;
+}
+
+.comments-section {
+    margin-top: 20px;
+}
+
+.comments-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.comment-form {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment-form textarea {
+    flex: 1;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    font-size: 14px;
+    resize: none;
+}
+
+.comment-form button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-form button:hover {
+    background-color: #005bb5;
+}
+
+.comment {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.comment img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.comment .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment .author {
+    font-weight: bold;
+    color: #0073e6;
+}
+
+.comment .timestamp {
+    font-size: 12px;
+    color: #888;
+}
+
+.comment .reply-button {
+    background-color: #0073e6;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.comment .reply-button:hover {
+    background-color: #005bb5;
+}
+
+.reply-form {
+    display: none;
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.reply-form textarea {
+    width: calc(100% - 120px);
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    font-size: 14px;
+    resize: none;
+}
+
+.reply-form button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reply-form button:hover {
+    background-color: #005bb5;
+}
+
+.reply-section {
+    margin-top: 10px;
+}
+
+.reply {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.reply img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.reply .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.reply .author {
+    font-weight: bold;
+    color: #0073e6;
+}
+
+.reply .timestamp {
+    font-size: 12px;
+    color: #888;
+}
+
+.footer-space {
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .navbar .menu a {
+        padding: 8px 10px;
+    }
+
+    .sidebar {
+        width: 150px;
+    }
+
+    .container {
+        margin-left: 160px;
+        width: calc(100% - 120px);
+    }
+
+    .author-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comment-form textarea,
+    .reply-form textarea {
+        width: calc(100% - 90px);
+    }
+
+    .comment-form button,
+    .reply-form button {
+        width: 80px;
+    }
+
+    .author-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .author-photo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .author-details {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1600px) {
+    .container {
+        margin-left: 220px;
+    }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조회 페이지</title>
+
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <script src="/js/common.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/board/boardRead.css}">
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/common/sidebar.css}">
+</head>
+<body>
+<div th:replace="~{/common/common :: navbar}"></div>
+<div th:replace="~{/common/common :: sidebar}"></div>
+
+<div class="container">
+    <!-- 글 제목과 추천 버튼 -->
+    <div class="post-title-container">
+        <div class="post-title">글 제목이 여기에 들어갑니다</div>
+        <button class="recommend-button">추천</button>
+    </div>
+
+    <!-- 글쓴이 정보 -->
+    <div class="author-info">
+        <div class="author-photo">
+            <img src="/img/test.PNG" alt="">
+        </div>
+        <div class="author-details">
+            <div class="item">
+                <div class="label">작성자</div>
+                <div class="value">작성자 이름</div>
+            </div>
+            <div class="item">
+                <div class="label">등록일</div>
+                <div class="value">2024-08-18</div>
+            </div>
+            <div class="item">
+                <div class="label">조회수</div>
+                <div class="value">1234</div>
+            </div>
+            <div class="item">
+                <div class="label">부서</div>
+                <div class="value">부서명</div>
+            </div>
+            <div class="item">
+                <div class="label">수정일</div>
+                <div class="value">2024-08-18</div>
+            </div>
+            <div class="item">
+                <div class="label">추천수</div>
+                <div class="value">567</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 글 내용 -->
+    <div class="post-content">
+        <p>글 내용이 여기에 들어갑니다. 글 내용이 길어질 경우 이 영역이 확장됩니다. 여기에 텍스트가 들어갑니다.</p>
+    </div>
+
+    <!-- 첨부파일 영역 -->
+    <div class="attachment-container">
+        <h3>첨부파일</h3>
+        <a href="test.ppt" >test.ppt</a>
+        <a href="test.xlsx">test.xlsx</a>
+        <a href="test.jpg">test.jpg</a>
+    </div>
+
+    <!-- 뒤로가기 버튼 -->
+    <a th:href="@{/board}" class="btn-back">뒤로가기</a>
+
+    <!-- 댓글 영역 -->
+    <div class="comments-section">
+        <h2>댓글</h2>
+
+        <!-- 댓글 작성 폼 -->
+        <div class="comment-form">
+            <textarea placeholder="댓글을 입력하세요..."></textarea>
+            <button>댓글 작성</button>
+        </div>
+
+        <!-- 댓글 영역 -->
+        <div class="comment">
+            <img src="#" alt="Commenter Profile Picture">
+            <div class="content">
+                <div class="author">댓글 작성자</div>
+                <div class="timestamp">2024-08-18 10:00</div>
+                <p>댓글 내용이 여기에 들어갑니다. 댓글의 내용이 길어질 경우 이 영역이 확장됩니다.</p>
+                <button class="reply-button">답글</button>
+                <div class="reply-form">
+                    <textarea placeholder="답글을 입력하세요..."></textarea>
+                    <button>답글 작성</button>
+                </div>
+                <!-- 대댓글 영역 -->
+                <div class="reply-section">
+                    <div class="reply">
+                        <img src="#" alt="Replyer Profile Picture">
+                        <div class="content">
+                            <div class="author">대댓글 작성자</div>
+                            <div class="timestamp">2024-08-18 10:15</div>
+                            <p>대댓글 내용이 여기에 들어갑니다. 대댓글의 내용이 길어질 경우 이 영역이 확장됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 추가 댓글 예제 -->
+        <div class="comment">
+            <img src="#" alt="Commenter Profile Picture">
+            <div class="content">
+                <div class="author">댓글 작성자</div>
+                <div class="timestamp">2024-08-18 10:30</div>
+                <p>다른 댓글 내용이 여기에 들어갑니다. 댓글의 내용이 길어질 경우 이 영역이 확장됩니다.</p>
+                <button class="reply-button">답글</button>
+                <div class="reply-form">
+                    <textarea placeholder="답글을 입력하세요..."></textarea>
+                    <button>답글 작성</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-space"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const replyButtons = document.querySelectorAll('.reply-button');
+        replyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const replyForm = button.nextElementSibling;
+                replyForm.style.display = replyForm.style.display === 'none' || replyForm.style.display === '' ? 'flex' : 'none';
+            });
+        });
+    });
+</script>
+</body>
+</html>

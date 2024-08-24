@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <script src="/js/common.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/board/board.css}">
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/common/sidebar.css}">
+</head>
+<body>
+<div th:replace="~{/common/common :: navbar}"></div>
+<div th:replace="~{/common/common :: sidebar}"></div>
+
+<div class="container">
+    <div class="tabs">
+        <a href="#" class="active" onclick="showBoard('notice')">공지사항</a>
+        <a href="#" onclick="showBoard('free')">자유게시판</a>
+        <a href="#" onclick="showBoard('anonymous')">익명게시판</a>
+    </div>
+
+    <!-- 공지사항 게시판 -->
+    <div id="notice" class="board">
+        <div class="header">
+            <h1>공지사항</h1>
+            <a th:href="@{/boardWrite}" class="btn-new">새 글 작성</a>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td><a href="#">공지사항 1</a></td>
+                <td>관리자</td>
+                <td>2024-08-18</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="#">공지사항 2</a></td>
+                <td>관리자</td>
+                <td>2024-08-17</td>
+                <td>80</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 자유게시판 -->
+    <div id="free" class="board" style="display: none;">
+        <div class="header">
+            <h1>자유게시판</h1>
+            <a th:href="@{/boardWrite}" class="btn-new">새 글 작성</a>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td><a href="#">자유게시판 1</a></td>
+                <td>홍길동</td>
+                <td>2024-08-18</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="#">자유게시판 2</a></td>
+                <td>이순신</td>
+                <td>2024-08-17</td>
+                <td>21</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 익명게시판 -->
+    <div id="anonymous" class="board" style="display: none;">
+        <div class="header">
+            <h1>익명게시판</h1>
+            <a th:href="@{/boardWrite}" class="btn-new">새 글 작성</a>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td><a href="#">익명 게시글 1</a></td>
+                <td>2024-08-18</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="#">익명 게시글 2</a></td>
+                <td>2024-08-17</td>
+                <td>30</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function showBoard(boardId) {
+        var boards = document.querySelectorAll('.board');
+        boards.forEach(function(board) {
+            board.style.display = 'none';
+        });
+
+        document.getElementById(boardId).style.display = 'block';
+
+        var tabs = document.querySelectorAll('.tabs a');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+
+        document.querySelector('.tabs a[href="#' + boardId + '"]').classList.add('active');
+    }
+</script>
+
+</body>
+</html>

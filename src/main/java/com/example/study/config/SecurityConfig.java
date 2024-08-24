@@ -35,9 +35,9 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/loginProc", "/loginValid", "/join", "/joinProc", "/usernameOverlapCheck", "/css/**").permitAll() // 모든 접근 허용
-                        .requestMatchers("/").hasRole("USER")
-                        .requestMatchers("/manager").hasRole("MANAGER")
-                        .requestMatchers("/admin").hasRole("ADMIN") // ADMIN 권한이 있는 사용자만 접근 허용
+//                        .requestMatchers("/").hasRole("USER")
+//                        .requestMatchers("/manager").hasRole("MANAGER")
+//                        .requestMatchers("/admin").hasRole("ADMIN") // ADMIN 권한이 있는 사용자만 접근 허용
                         .anyRequest().authenticated()  // 나머지 모든 경로는 로그인 된 사용자만 접근 허용
                 )
                 .formLogin(login -> login

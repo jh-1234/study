@@ -1,6 +1,5 @@
 package com.example.study.entity;
 
-import com.example.study.constant.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -23,6 +22,9 @@ public class User extends TimeEntity {
     @NotBlank
     private String password;
 
+    @NotBlank
+    private String name;
+
     private String email;
 
     @NotBlank
@@ -39,7 +41,9 @@ public class User extends TimeEntity {
 
     private int passwordErrCnt;
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private String photoUrl;
+
+//    @NotNull
+//    @Enumerated(EnumType.STRING)
+//    private UserRole role;
 }

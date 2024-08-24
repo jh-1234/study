@@ -1,0 +1,98 @@
+.container {
+    margin-top: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    width: calc(100% - 240px);
+    margin-right: auto;
+    margin-left: auto;
+    flex: 1;
+}
+
+.address-book {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.address-book thead {
+    background-color: #0073e6;
+    color: white;
+}
+
+.address-book th, .address-book td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.address-book th {
+    font-weight: bold;
+}
+
+.address-book td img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.address-book tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.address-book tr:hover {
+    background-color: #f1f1f1;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #0073e6;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #0073e6;
+    color: white;
+}
+
+.pagination .active {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .address-book th, .address-book td {
+        font-size: 0.9em;
+    }
+
+    .navbar .menu a {
+        padding: 8px 10px;
+    }
+
+    .sidebar {
+        width: 150px;
+    }
+
+    .container {
+        margin-left: 160px;
+        width: calc(100% - 120px);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1600px) {
+    .container {
+        margin-left: 220px;
+    }
+}

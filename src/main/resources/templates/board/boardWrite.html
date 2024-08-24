@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기 페이지</title>
+
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <script src="/js/common.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/board/boardWrite.css}">
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/common/sidebar.css}">
+</head>
+<body>
+<div th:replace="~{/common/common :: navbar}"></div>
+<div th:replace="~{/common/common :: sidebar}"></div>
+
+<div class="container">
+    <h1>새 글 작성</h1>
+    <form th:action="@{/boardWrite}" th:object="${board}" method="post" enctype="multipart/form-data">
+        <label for="title">제목</label>
+        <input type="text" id="title" th:field="*{title}" required>
+
+        <label for="content">내용</label>
+        <textarea id="content" th:field="*{content}" required></textarea>
+
+        <label for="file">파일 업로드</label>
+        <input type="file" id="file" name="file">
+
+        <div style="margin-top: 20px;">
+            <button type="submit">작성하기</button>
+            <a th:href="@{/board}" class="btn-cancel">취소</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

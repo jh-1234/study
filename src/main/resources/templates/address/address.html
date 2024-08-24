@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주소록</title>
+
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <script src="/js/common.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/address/address.css}">
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
+    <link rel="stylesheet" th:href="@{/css/common/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/common/sidebar.css}">
+</head>
+<body>
+<div th:replace="~{/common/common :: navbar}"></div>
+<div th:replace="~{/common/common :: sidebar}"></div>
+
+<div class="container">
+    <h1>주소록</h1>
+    <table class="address-book">
+        <thead>
+        <tr>
+            <th>사진</th>
+            <th>이름</th>
+            <th>연락처</th>
+            <th>직위</th>
+            <th>부서</th>
+            <th>이메일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 1"></td>
+            <td>홍길동</td>
+            <td>010-1234-5678</td>
+            <td>팀장</td>
+            <td>개발팀</td>
+            <td>hong@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 2"></td>
+            <td>김철수</td>
+            <td>010-2345-6789</td>
+            <td>대리</td>
+            <td>디자인팀</td>
+            <td>kim@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 3"></td>
+            <td>이영희</td>
+            <td>010-3456-7890</td>
+            <td>사원</td>
+            <td>인사팀</td>
+            <td>lee@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 4"></td>
+            <td>박지민</td>
+            <td>010-4567-8901</td>
+            <td>사원</td>
+            <td>마케팅팀</td>
+            <td>park@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 5"></td>
+            <td>최민수</td>
+            <td>010-5678-9012</td>
+            <td>팀장</td>
+            <td>영업팀</td>
+            <td>choi@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 6"></td>
+            <td>정지훈</td>
+            <td>010-6789-0123</td>
+            <td>부장</td>
+            <td>운영팀</td>
+            <td>jeong@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 7"></td>
+            <td>김지연</td>
+            <td>010-7890-1234</td>
+            <td>사원</td>
+            <td>연구개발팀</td>
+            <td>kimji@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 8"></td>
+            <td>이민호</td>
+            <td>010-8901-2345</td>
+            <td>대리</td>
+            <td>재무팀</td>
+            <td>leemin@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 9"></td>
+            <td>한지민</td>
+            <td>010-9012-3456</td>
+            <td>사원</td>
+            <td>고객지원팀</td>
+            <td>han@example.com</td>
+        </tr>
+        <tr>
+            <td><img src="/test.PNG" alt="사진 10"></td>
+            <td>이서진</td>
+            <td>010-0123-4567</td>
+            <td>팀장</td>
+            <td>품질관리팀</td>
+            <td>lees@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <a href="#">« 이전</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">7</a>
+        <a href="#">8</a>
+        <a href="#">9</a>
+        <a href="#">10</a>
+        <a href="#">다음 »</a>
+    </div>
+</div>
+</body>
+</html>

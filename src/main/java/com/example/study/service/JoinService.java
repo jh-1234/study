@@ -33,7 +33,7 @@ public class JoinService {
         user.setBirthdate(joinDTO.getBirthdate());
         user.setPhone(joinDTO.getPhone());
         user.setAddress(joinDTO.getAddress());
-        user.setRole(UserRole.ROLE_USER);
+//        user.setRole(UserRole.ROLE_USER);
 
         userRepository.save(user);
     }

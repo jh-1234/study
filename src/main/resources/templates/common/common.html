@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 상단 네비게이션 바 -->
+<div th:fragment="navbar" class="navbar">
+    <div class="logo">
+        <!-- <div class="logo-icon">&#9733;</div> -->
+        <a th:href="@{/}" class="logo-text">Home</a>
+    </div>
+    <div class="menu">
+        <a href="#">내정보</a>
+        <a href="#">뭐하지</a>
+        <a href="#">뭐하지2</a>
+        <a id="logout" href="javascript:void(0);" onclick="logout();">로그아웃</a>
+    </div>
+</div>
+
+<!-- 왼쪽 사이드 바 -->
+<div th:fragment="sidebar" class="sidebar">
+    <a href="#">결재문서</a>
+    <a th:href="@{/board}">게시판</a>
+    <a th:href="@{/address}">주소록</a>
+    <a href="#">뭐하지</a>
+</div>
+</body>
+</html>

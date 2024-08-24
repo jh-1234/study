@@ -6,7 +6,7 @@
     <title>Login</title>
 
     <link rel="stylesheet" th:href="@{/css/error.css}">
-    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/login/login.css}">
 </head>
 <body>
 <div class="login-container">
@@ -17,9 +17,9 @@
     <div th:if="${errorCode == 2}">
         <span class="error">로그인 시도 횟수 초과</span>
     </div>
-    <form th:action="@{/loginProc}" method="post" th:object="${loginDTO}">
-        <input type="text" th:field="*{username}" placeholder="아이디" required>
-        <input type="password" th:field="*{password}" placeholder="비밀번호" required>
+    <form th:action="@{/loginProc}" method="post">
+        <input type="text" name="username" placeholder="아이디" required>
+        <input type="password" name="password" placeholder="비밀번호" required>
         <button type="submit">로그인</button>
     </form>
     <p><a th:href="@{/join}">회원가입</a> | <a href="#">비밀번호 찾기</a></p>
